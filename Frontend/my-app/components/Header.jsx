@@ -1,5 +1,10 @@
+import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import Wrapper from "./Wrapper";
+
+import Menu from "./Menu";
+
+
 
 const Header = () => {
   
@@ -13,8 +18,11 @@ const Header = () => {
           className={`w-full h-[50px] md:h-[80px] bg-white flex items-center justify-between z-20 sticky top-0 
           transition-transform duration-300 ${show}`}
       >
-        <Wrapper>
-          <img src="/logo.svg" className="w-[40px] md:w-[60px]" />
+        <Wrapper className="h-[60px] flex justify-between items-center">
+          <Link href="/">
+            <img src="/logo.svg" className="w-[40px] md:w-[60px]" />
+          </Link>
+          <Menu showCatMenu={showCatMenu} setShowCatMenu={setShowCatMenu}/>
         </Wrapper>
       </header>
   );
