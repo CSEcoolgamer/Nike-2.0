@@ -16,7 +16,7 @@ const subMenuData = [
     { id: 4, name: "Football shoes", doc_count: 107 },
 ];
 
-const Menu = ({ showCatMenu, setShowCatMenu, categories }) => {
+const MenuMobile = ({ showCatMenu, setShowCatMenu, setMobileMenu }) => {
     return (
         <ul className="hidden md:flex items-center gap-8 font-medium text-black">
             {data.map((item) => {
@@ -28,30 +28,35 @@ const Menu = ({ showCatMenu, setShowCatMenu, categories }) => {
                                 onMouseEnter={() => setShowCatMenu(true)}
                                 onMouseLeave={() => setShowCatMenu(false)}
                             >
-                                {item.name}
-                                <BsChevronDown size={14} />
+                                <div>
+                                    {item.name}
+                                    <BsChevronDown size={14} />
+                                </div>
 
                                 {showCatMenu && (
                                     <ul className="bg-white absolute top-6 left-0 min-w-[250px] px-1 py-1 text-black shadow-lg">
-                                        {subMenuData.map(( submenu) => {
-                                                return (
-                                                    <Link key={submenu.id} href="/" onClick={() => setShowCatMenu(false)}>
-                                                        <li className="h-12 flex justify-between items-center px-3 hover:bg-black/[0.03] rounded-md">
-                                                            {submenu.name}
-                                                            <span className="opacity-50 text-sm">
-                                                                78
-                                                            </span>
-                                                        </li>
-                                                    </Link>
-                                                );
-                                            }
-                                        )}
+                                        {subMenuData.map((submenu) => {
+                                            return (
+                                                <Link
+                                                    key={submenu.id}
+                                                    href="/"
+                                                    onClick={() => setShowCatMenu(false)}
+                                                >
+                                                    <li className="h-12 flex justify-between items-center px-3 hover:bg-black/[0.03] rounded-md">
+                                                        {submenu.name}
+                                                        <span className="opacity-50 text-sm">78</span>
+                                                    </li>
+                                                </Link>
+                                            );
+                                        })}
                                     </ul>
                                 )}
                             </li>
                         ) : (
                             <li className="cursor-pointer">
-                                <Link href={item?.url}>{item.name}</Link>
+                                <Link href={item?.url} onClick={() => setMobileMenu(false)}>
+                                    {item.name}
+                                </Link>
                             </li>
                         )}
                     </React.Fragment>
@@ -61,4 +66,4 @@ const Menu = ({ showCatMenu, setShowCatMenu, categories }) => {
     );
 };
 
-export default Menu;
+export default MenuMobile;
