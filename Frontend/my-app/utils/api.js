@@ -26,3 +26,4 @@ export const makePaymentRequest = async (endpoint, payload) => {
     const data = await res.json();
     return data;
 };
+
