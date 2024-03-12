@@ -138,6 +138,9 @@ const Footer = () => {
                     <div className="text-[12px] text-white/[0.5] hover:text-white cursor-pointer">
                         Nike Privacy Policy
                     </div>
+                    <div className="text-[12px] text-white/[0.5] hover:text-white cursor-pointer">
+                        Creator: Sachin Nirate
+                    </div>
                 </div>
                 {/* RIGHT END */}
             </Wrapper>

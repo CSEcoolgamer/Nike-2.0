@@ -9,12 +9,12 @@ const data = [
     { id: 4, name: "Contact", url: "/contact" },
 ];
 
-const subMenuData = [
-    { id: 1, name: "Jordan", doc_count: 11 },
-    { id: 2, name: "Sneakers", doc_count: 8 },
-    { id: 3, name: "Running shoes", doc_count: 64 },
-    { id: 4, name: "Football shoes", doc_count: 107 },
-];
+// const subMenuData = [
+//     { id: 1, name: "Jordan", doc_count: 11 },
+//     { id: 2, name: "Sneakers", doc_count: 8 },
+//     { id: 3, name: "Running shoes", doc_count: 64 },
+//     { id: 4, name: "Football shoes", doc_count: 107 },
+// ];
 
 const Menu = ({ showCatMenu, setShowCatMenu, categories }) => {
     return (
@@ -33,13 +33,22 @@ const Menu = ({ showCatMenu, setShowCatMenu, categories }) => {
 
                                 {showCatMenu && (
                                     <ul className="bg-white absolute top-6 left-0 min-w-[250px] px-1 py-1 text-black shadow-lg">
-                                        {subMenuData.map(( submenu) => {
+                                        {categories?.map(
+                                            ({ attributes: c, id }) => {
                                                 return (
-                                                    <Link key={submenu.id} href="/" onClick={() => setShowCatMenu(false)}>
+                                                    <Link
+                                                        key={id}
+                                                        href={`/category/${c.slug}`}
+                                                        onClick={() =>
+                                                            setShowCatMenu(
+                                                                false
+                                                            )
+                                                        }
+                                                    >
                                                         <li className="h-12 flex justify-between items-center px-3 hover:bg-black/[0.03] rounded-md">
-                                                            {submenu.name}
+                                                            {c.name}
                                                             <span className="opacity-50 text-sm">
-                                                                78
+                                                                {`(${c.products.data.length})`}
                                                             </span>
                                                         </li>
                                                     </Link>
