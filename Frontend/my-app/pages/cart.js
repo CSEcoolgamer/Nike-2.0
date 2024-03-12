@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 import { makePaymentRequest } from "@/utils/api";
 import { loadStripe } from "@stripe/stripe-js";
 const stripePromise = loadStripe(
-    process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+    'pk_test_51OsqgFSEkx7nmwA2EpMZxDPQNLbDzxFROnzV35pi9xiaAU7QtlGjLm5F0cjLptOrzP97JvvKKpDgNszXhBAQzqG900T6eIOnEZ'
 );
 
 const Cart = () => {
@@ -134,4 +134,4 @@ const Cart = () => {
 
 export default Cart;
 
-//  Indian Stripe test card India (IN) 4000003560000008 Visa
+
